@@ -38,13 +38,14 @@
       <form action="" method="post">
       <label for="cars">Choose Department:</label>
       <select name="deptname" id="dept">
+        <option value="CSE">Select</option>
         <option value="CSE">CSE</option>
         <option value="EE">EE</option>
         <option value="ME">ME</option>
         <option value="CE">CE</option>
         <option value="MEMS">MEMS</option>
       </select>
-      <button type="submit">Search</button>
+      <button type="submit">GO</button>
     </form>
       <!-- <p >
           Choose Department:<SELECT name="deptname">
@@ -58,9 +59,9 @@
       <tr>
         <th>Faculty list</th>
       </tr>
-      {% for c in cname%}
+      {% for course in cname%}
       <tr>
-        <td>{{c}}</td>
+        <td>{{course['cname']}}</td>
       </tr>
       {% endfor %}
       

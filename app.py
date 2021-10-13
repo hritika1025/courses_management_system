@@ -19,11 +19,17 @@ mysql = MySQL(app)
 @app.route("/", methods=['GET', 'POST'])
 def index():
     cname=''
-    if request.method == 'POST' and 'username' in request.form:
+    if request.method == 'POST' :
         deptname = request.form['deptname']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT cname FROM dept_cid_cname  WHERE deptname =% s', (deptname, )) 
         cname = cursor.fetchall() 
+        cursor.close()
+        # return redirect(url_for('course'))
     return render_template('index.html',cname=cname)
+
+# @app.route("/course",methods=['GET','POST'])
+# def course():
+#     if request.method=='POST' and ''
 
 app.run(debug=True)
