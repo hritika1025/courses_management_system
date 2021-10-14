@@ -33,40 +33,50 @@ nav button{
     background-color: #25274d;
     font-weight: bold;
 }
-nav button:hover{
+nav button:hover {
     color: #25274d;
     background-color: #2e9cca;
-    
-}
-.dept{
-    margin: 20px auto;
-    justify-content: start;
-    align-items: flex-start;
-    width: 150px;
-    
-}
-
-.blue button:hover{
-    background-color: #25274d;
 }
 .container{
     display: flex;
     flex-direction: row;
 }
-.box1{
+.container form {
+    margin: 10px auto ;
+    justify-content: left;
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.container form button{
+    padding: 2px;
+    margin: 10px auto;
+    border: 4px solid #25274d;
+    color: #25274d;
+    font-size: 1rem;
+    background-color: #2e9cca;
+    width: 60px;
+}
+.box{
     display: flex;
     flex-direction: column;
 }
-.box2{
-    display: flex;
-}
-.box2 h2{
-    font-size: 1.5rem;
-    margin: auto 10px;
-}
-table{
-    margin:  auto;
+.box p{
+    margin: 10px 350px;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #25274d;
+    font-size: 1.8rem;
+    width: 50%;
+    padding: 5px;
+    /* border: 2px solid #29648a; */
+}
+
+table{
+    margin:  10px 350px;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #25274d;
     border-radius: 8px;
     width: 50%;

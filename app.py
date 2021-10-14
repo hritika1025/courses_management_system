@@ -18,18 +18,18 @@ mysql = MySQL(app)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    cname=''
+    prof_name=''
+    deptname=''
     if request.method == 'POST' :
         deptname = request.form['deptname']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT cname FROM dept_cid_cname  WHERE deptname =% s', (deptname, )) 
-        cname = cursor.fetchall() 
+        # cursor.execute('SELECT cname FROM dept_cid_cname  WHERE deptname =% s', (deptname, )) 
+        cursor.execute('SELECT  cid_pid_pname.prof_name FROM dept_cid_cname INNER JOIN cid_pid_pname on dept_cid_cname.cid = cid_pid_pname.cid WHERE deptname =% s', (deptname, )) 
+        prof_name = cursor.fetchall() 
         cursor.close()
         # return redirect(url_for('course'))
-    return render_template('index.html',cname=cname)
+    return render_template('index.html',prof_name=prof_name,deptname=deptname) 
 
-# @app.route("/course",methods=['GET','POST'])
-# def course():
-#     if request.method=='POST' and ''
+
 
 app.run(debug=True)

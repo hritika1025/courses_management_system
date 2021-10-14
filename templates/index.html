@@ -36,7 +36,7 @@
     </nav>
     <div class="container">
       <form action="" method="post">
-      <label for="cars">Choose Department:</label>
+      <label for="Dept">Choose Department:</label>
       <select name="deptname" id="dept">
         <option value="CSE">Select</option>
         <option value="CSE">CSE</option>
@@ -47,25 +47,24 @@
       </select>
       <button type="submit">GO</button>
     </form>
-      <!-- <p >
-          Choose Department:<SELECT name="deptname">
-          {% for dept in deptname %}
-            
-            <OPTION value={{dept}}>{{dept}}</OPTION>
-          {% endfor %}
-          </SELECT>
-          </p> -->
+    {% if deptname  %}
+        <p></p>
+    {% endif %}
+    <div class="box">
+      <p>{{deptname}}</p>
     <table>
       <tr>
         <th>Faculty list</th>
+        
       </tr>
-      {% for course in cname%}
+      {% for prof in prof_name%}
       <tr>
-        <td>{{course['cname']}}</td>
+        <td>{{prof['prof_name']}}</td>
       </tr>
       {% endfor %}
       
       </table>
+    </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
