@@ -1,0 +1,103 @@
+body{
+    font-family: 'Merriweather', serif;
+    background-color: #aaabb8;
+}
+nav{
+    display: flex;
+    background-color: #25274d;
+    border-bottom: 5px solid #29648a;
+}  
+nav img{
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+} 
+nav p{
+    margin:  auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+}
+nav button{
+    margin: 28px 8px;
+    padding: 6px;
+    border: 2px solid #2e9cca;
+    border-radius: 10px;
+    justify-content: end;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2e9cca;
+    background-color: #25274d;
+    font-weight: bold;
+}
+nav button:hover {
+    color: #25274d;
+    background-color: #2e9cca;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.container h2{
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+}
+.container form {
+    margin: 0px auto;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 80px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #25274d;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.container form label{
+    margin: 5px auto;
+    justify-content: center;
+    align-items: center;
+}
+.container form input{
+    font-size: 1.2rem;
+    padding: 3px;
+}
+.container form button{
+    margin: 28px 8px;
+    padding: 6px;
+    border: 2px solid #2e9cca;
+    border-radius: 10px;
+    justify-content: end;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2e9cca;
+    background-color: #25274d;
+    font-weight: bold;
+}
+.container form button:hover{
+    color: #25274d;
+    background-color: #2e9cca;
+}
+#home{
+    display: flex;
+}
+#home a{
+    margin:30px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
