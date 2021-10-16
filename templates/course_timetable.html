@@ -43,25 +43,43 @@
       
                       <div class="text-center">
                         <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/lotus.png" style="width: 185px;" alt="logo">
-                        <h4 class="mt-1 mb-5 pb-1">Course Information</h4>
-                        <h5 style="color: red;">{{msg}}</h5>
+                        <h4 class="mt-1 mb-5 pb-1">Course Timetable</h4>
+                        
                       </div>
       
-                      <form method="post">
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="department">Department:</label>
-                          <input type="text" id="department" class="form-control" placeholder="Department" name ="deptname"/>
-                        </div>
+                      <form  method="post">
+                        <!-- <div class="form-outline mb-4">
+                            <label class="form-label" for="pid">Professor Id:</label>
+                          <input type="text" id="pid" class="form-control" placeholder="Professor Id" name ="prof_id"/>
+                        </div> -->
                         
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="cid">Course Id:</label>
-                          <input type="text" id="cid" class="form-control" placeholder="Course Id" name="cid"/>
+                            <label class="form-label" for="pid">Professor Id:</label>
+                          <input type="text" id="pid" class="form-control" placeholder="Professor Id" name="pid"/>
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="cname">Course name:</label>
-                          <input type="text" id="cname" class="form-control" placeholder="Course name" name ="cname"/>
+                            <label class="form-label" for="roomno">Room NO:</label>
+                          <input type="text" id="roomno" class="form-control" placeholder="Room NO" name="roomno"/>
                         </div>
-                        <input class="form-check-input" type="radio" name="time" id="add" >
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="sem">Semester:</label>
+                          <input type="text" id="sem" class="form-control" placeholder="Semester" name="sem"/>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="year">Year:</label>
+                          <input type="text" id="year" class="form-control" placeholder="Year" name="year"/>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="st">Start Time:</label>
+                          <input type="time" id="st" class="form-control" placeholder="Start Time" name="st"/>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="et">End  Time:</label>
+                          <input type="time" id="et" class="form-control" placeholder="End Time" name="et"/>
+                        </div>
+                        
+                        
+                          <input class="form-check-input" type="radio" name="time" id="add" >
                           <label class="form-check-label" for="add">
                             Add
                           </label>
@@ -73,22 +91,22 @@
                            <label class="form-check-label" for="del">
                              Delete
                            </label>
-      
-      
-                        <div class="text-center pt-1 mb-5 pb-1">
-                        </div>
                         
+                        
+                       <br><br>
                         <div class="d-flex align-items-center justify-content-center pb-4">
-                            <input class="btn btn-success btn-block fa-lg  mb-3" type="submit">
+                            <input class="btn btn-success btn-block fa-lg  mb-3 " type="submit">
                         </div>
+    
                         <p>Wanna go back to dashboard? <a href="{{url_for('admin_dashboard')}}"> <button type="button" class="btn btn-outline-primary">Home</button></a></p>
+
                       </form>
       
                     </div>
                   </div>
                   <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h4 class="mb-4">Please edit the course information here.</h4>
+                      <h4 class="mb-4">Please edit the course timetable here.</h4>
                     </div>
                   </div>
                 </div>
