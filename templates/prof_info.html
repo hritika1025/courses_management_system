@@ -44,21 +44,22 @@
                       <div class="text-center">
                         <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/lotus.png" style="width: 185px;" alt="logo">
                         <h4 class="mt-1 mb-5 pb-1">Faculty Information</h4>
+                        <h5 style="color: red;">{{msg}}</h5>
                       </div>
       
-                      <form>
-                        <div class="form-outline mb-4">
+                      <form  method="post">
+                        <!-- <div class="form-outline mb-4">
                             <label class="form-label" for="pid">Professor Id:</label>
-                          <input type="text" id="pid" class="form-control" placeholder="Professor Id"/>
-                        </div>
+                          <input type="text" id="pid" class="form-control" placeholder="Professor Id" name ="prof_id"/>
+                        </div> -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="pname">Proffesor name:</label>
-                          <input type="text" id="pname" class="form-control" placeholder="Professor name"/>
+                            <label class="form-label" for="pname">Professor name:</label>
+                          <input type="text" id="pname" class="form-control" placeholder="Professor name" name="prof_name"/>
                         </div>
                         
                         <div class="form-outline mb-4">
                             <label class="form-label" for="cid">Course Id:</label>
-                          <input type="text" id="cid" class="form-control" placeholder="Course Id"/>
+                          <input type="text" id="cid" class="form-control" placeholder="Course Id" name="cid"/>
                         </div>
       
       
@@ -69,7 +70,7 @@
                             <input class="btn btn-success btn-block fa-lg  mb-3 " type="submit">
                         </div>
                         <br>
-                        <p>Wanna go back to home? <a href=""> <button type="button" class="btn btn-outline-primary">Home</button></a></p>
+                        <p>Wanna go back to dashboard? <a href="{{url_for('admin_dashboard')}}"> <button type="button" class="btn btn-outline-primary">Home</button></a></p>
                       </form>
       
                     </div>
