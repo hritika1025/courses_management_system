@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<body style="background-color: #25274d;">
+     <nav class="navbar navbar-thick-blue bg-light">
+        <pre> <h1>   INDIAN INSTITUTE OF TECHNOLOGY INDORE</h1></pre>
+        
+     </nav>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="#" >INSERT DATA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-6">
+
+                <div class="card">
+                    <div class="card-header">
+
+                        <h5>Add Course and Faculty</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/add-course-faculty" , method="post">
+                            <label for="faculty_id"> Faculty Id:</label>
+                            <br>
+                            <input type="text" name="faculty_id" id="faculty_id" placeholder="Faculty Id" required> <br>
+                            <br>
+                            <label for="course_id">Course taught by Faculty:</label> <br>
+                            <input type="text" name="course_id" id="course_id" placeholder="Course taught by Faculty"
+                                required> <br>
+                            <br>
+                            <label for="year">Year: </label>
+                            <br>
+                            <input type="number" name="year" id="year" min="2009" max="2099" step="1" value="2021"
+                                placeholder="Year" required> <br>
+                            <br>
+                            <span>Semester:</span> <br>
+                            <select name="semester" id="">
+                                <option value="autumn">Autumn</option>
+                                <option value="spring">Spring</option>
+                            </select> <br>
+                            <br>
+                            <label for="students">No of Students:</label> <br>
+                            <input type="number" name="students" id="students"> <br>
+                            <br>
+
+                            <br><br>
+                            <input type="submit" class="btn btn-success">
+
+                            {% if adcf == "There is no faculty with this Faculty ID in database" or adcf == "There is no
+                            course with this Course ID in database" or adcf == "Added Successfully!!" or adcf == "Please
+                            don't make redundant entries" %}
+                            <br> <span style="color: red;">{{ adcf }}</span> <br>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-6">
+
+                <div class="card">
+                    <div class="card-header">
+
+                        <h5>Add Class Timings</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <form action="/add-classes" method="post">
+                            <label for="course_id">Course Id:</label> <br>
+                            <input type="text" name="course_id" id="course_id" placeholder="Course Id" required> <br>
+                            <!-- <span>Enter Faculty ID</span> <br>
+        <input type="text" name="faculty_id" id=""> <br> -->
+                            <br>
+                            <label for="year">Year:</label> <br>
+                            <input type="number" name="year" id="year" min="2009" max="2099" step="1" value="2021"
+                                required> <br>
+                            <br>
+                            <span>Semester</span> <br>
+                            <select name="semester" id="semester">
+                                <option value="autumn">Autumn</option>
+                                <option value="spring">Spring</option>
+                            </select> <br>
+                            <br>
+                            <span>Enter start time and the end time of class</span> <br>
+                            <input type="time" name="start_time" id="" required>
+                            <input type="time" name="end_time" id="" required> <br>
+                            <span>Day</span> <br>
+                            <select name="weekday" id="weekday" required>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select> <br>
+                            <br>
+                            <label for="room_no">Room No:</label> <br>
+                            <input type="text" name="room_no" id="room_no" placeholder="Room No" required> <br>
+                            <br>
+                            <input type="submit" class="btn btn-success">
+                            {% if adcl == "Please first add course with faculty" or adcl == "Added Successfully!!" or
+                            adcl == "Please don't make redundant entries" or adcl == "Entries you made are conflicting"
+                            %}
+                            <br> <span style="color: red;">{{ adcl }}</span> <br>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <br><br>
+
+                <br>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Add faculty</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="/add-faculty" method="post">
+                                <span>Department of Faculty:</span>
+                                <select name="dept_name" id="" required>
+                                    <option value="">Department </option>
+                                    {% for de in dept_list %}
+                                    <option value="{{ de[0] }}">{{ de[0] }}</option>
+                                    {% endfor %}
+                                </select> <br>
+                                <br>
+                                <label for="faculty_id">Faculty Id:</label> <br>
+                                <input type="text" name="faculty_id" id="faculty_id" placeholder="Faculty Id" required>
+                                <br>
+                                <br>
+                                <label for="faculty_name">Faculty Name:</label> <br>
+                                <input type="text" name="faculty_name" id="faculty_name" placeholder="Faculty Name">
+                                <br>
+                                <br>
+                                <input type="submit" class="btn btn-success">
+                                {% if fac == "Added Successfully!!" or fac == "There is already a faculty present with
+                                this
+                                Faculty ID" %}
+                                <br> <span style="color: red;">{{ fac }}</span> <br>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5> Add Course</h5>
+                        </div>
+                        <div class="card-body">
+
+                            <form action="/add-course" method="post">
+                                <span>Department of Course:</span>
+                                <select name="dept_name" id="dept_name" required>
+                                    <option value="" selected>Department </option>
+                                    {% for de in dept_list %}
+                                    <option value="{{ de[0] }}">{{ de[0] }}</option>
+                                    {% endfor %}
+                                </select> <br><br>
+
+                                <label for="course_id"> Course Id:</label>
+                                <br>
+                                <input type="text" name="course_id" id="course_id" placeholder="Course Id" required>
+                                <br>
+                                <br>
+                                <label for="course_name"> Course Name:</label>
+                                <br>
+                                <input type="text" name="course_name" id="course_name" placeholder="Course Name"
+                                    required>
+                                <br>
+                                <br>
+                                <input type="submit" class="btn btn-success">
+                                {% if crs == "Added Successfully!!" or crs == "No such department in the database" or
+                                crs ==
+                                "There is already a course with this Course ID" %}
+                                <br> <span style="color: red;">{{ crs }}</span> <br>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Add Department</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="/add-department" method="post">
+                                <label for="department_name"> Department Name:</label>
+                                <br>
+                                <br>
+                                <input type="text" name="dept_name" id="department_name"
+                                    placeholder="Department Name" required> <br>
+                                <br>
+                                <br>
+                                <br><br>
+                                <br>
+                                <input type="submit" class="btn btn-success">
+                                {% if dept == "Added Successfully!!" or dept == "Department is already present in the
+                                database" %}
+                                <br> <span style="color: red;">{{ dept }}</span> <br>
+                                {% endif %}
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+<br><br>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>
